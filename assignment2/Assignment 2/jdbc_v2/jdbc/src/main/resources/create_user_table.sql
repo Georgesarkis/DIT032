@@ -1,0 +1,1 @@
+CREATE TABLE "user"  (Ssn VARCHAR  PRIMARY KEY, Name VARCHAR , Email VARCHAR , isActive BOOLEAN);

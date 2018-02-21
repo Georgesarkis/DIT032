@@ -1,0 +1,69 @@
+CREATE TABLE PLACE(
+name VARCHAR,
+location VARCHAR,
+rating int check (rating >= 0 and rating <= 5),
+opening_hours varchar,
+landmark VARCHAR,
+museum VARCHAR,
+PRIMARY KEY (name,location)
+);
+
+CREATE TABLE "USER"(
+email_address VARCHAR CHECK ( email_address LIKE '%_@__%.__%'),
+PRIMARY KEY (email_address)
+);
+
+CREATE TABLE EMAIL(
+id VARCHAR,
+sender VARCHAR,
+message VARCHAR,
+date DATE,
+PRIMARY KEY (ID),
+user_email VARCHAR,
+FOREIGN KEY (user_email) REFERENCES "USER"(email_address)
+);
+
+CREATE TABLE FAVORS (
+place_name VARCHAR,
+place_location VARCHAR,
+user_email VARCHAR,
+FOREIGN KEY (place_name,place_location) REFERENCES PLACE(name,location),
+FOREIGN KEY (user_email) REFERENCES "USER"(email_address)
+);
+
+CREATE TABLE FOLLOW(
+follower VARCHAR,
+followee VARCHAR,
+is_approved BOOLEAN,
+FOREIGN KEY (followee) REFERENCES "USER"(email_address),
+FOREIGN KEY (follower) REFERENCES "USER"(email_address)
+);
+
+CREATE TABLE TRIP(
+destination VARCHAR,
+start_date DATE,
+end_date DATE,
+user_email VARCHAR NOT NULL,
+FOREIGN KEY (user_email) REFERENCES "USER"(email_address),
+PRIMARY KEY (user_email,destination)
+);
+
+CREATE TABLE DAY_PLAN(
+name VARCHAR,
+date DATE,
+trip_destination VARCHAR NOT NULL,
+user_email VARCHAR,
+FOREIGN KEY (trip_destination,user_email) REFERENCES trip(destination,user_email),
+PRIMARY KEY (name,user_email,trip_destination)
+);
+
+CREATE TABLE "REFERENCES"(
+sequence_nr VARCHAR,
+place_name VARCHAR,
+place_location VARCHAR,
+day_plan_name VARCHAR,
+trip_destination VARCHAR,
+user_email VARCHAR,
+FOREIGN KEY (place_name,place_location) REFERENCES PLACE(name,location),
+FOREIGN KEY (day_plan_name,trip_destination,user_email) REFERENCES DAY_PLAN(name,user_email,trip_destination)
+);
