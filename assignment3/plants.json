@@ -1,0 +1,122 @@
+{
+  "plant" : {
+    "Type" : "Tree",
+    "English_name" : "Maple",
+    "Plant_code": "01A01",
+    "Color": ["green"],
+    "Height" : 2
+  }
+}
+{
+  "plant" : {
+    "Type" : "Tree",
+    "English_name" : "Oak Tree",
+    "Plant_code": "13F27",
+    "Color": ["green", "brown"],
+    "Height" : 5
+  }
+}
+{
+  "plant" : {
+    "Type" : "Tree",
+    "English_name" : "Oak Tree",
+    "Plant_code": "13F28",
+    "Color": ["green", "brown"],
+    "Height" : 5
+  }
+}
+{
+  "plant" : {
+    "Type" : "Tree",
+    "English_name" : "Oak Tree",
+    "Plant_code": "13F29",
+    "Color": ["green", "brown"],
+    "Height" : 5
+  }
+}
+{
+  "plant" : {
+    "Type" : "Tree",
+    "English_name" : "Oak Tree",
+    "Plant_code": "13F30",
+    "Color": ["green", "brown"],
+    "Height" : 5
+  }
+}
+{
+  "plant" : {
+    "Type" : "Rose",
+    "English_name" : "Red Rose",
+    "Plant_code": "100D02",
+    "Color": ["red"],
+    "Sepal_size": {
+      "Width" : 0.01, "Height" : 0.01
+    },
+    "Petal_size": {
+      "Width" : 0.01, "Height" : 0.01
+    },
+    "has_thorns" : true,
+    "originates_from" : "Mini Rose Garden"
+  }
+}
+{
+  "plant" : {
+    "Type" : "Rose",
+    "English_name" : "Red Rose",
+    "Plant_code": "100D01",
+    "Color": ["red"],
+    "Sepal_size": {
+      "Width" : 0.01, "Height" : 0.01
+    },
+    "Petal_size": {
+      "Width" : 0.01, "Height" : 0.01
+    },
+    "has_thorns" : true,
+    "originates_from" : "Mini Rose Garden"
+  }
+}
+{
+  "plant" : {
+    "Type" : "Tulip",
+    "English_name" : "Single Yellow Tulip",
+    "Plant_code": "9F28",
+    "Color": ["yellow"],
+    "Sepal_size": {
+      "Width" : 1, "Height" : 3
+    },
+    "Petal_size": {
+      "Width" : 2, "Height" : 4
+    },
+    "Species": "Single Tulip"
+  }
+}
+{
+  "plant" : {
+    "Type" : "Orchid",
+    "English_name" : "White Orchid",
+    "Plant_code": "13D05",
+    "Color": ["green", "white"],
+    "Sepal_size": {
+      "Width" : 0.05, "Height" : 0.05
+    },
+    "Petal_size": {
+      "Width" : 0.5, "Height" : 0.6
+    },
+    "Growth_form": "Hybrid"
+  }
+}
+{
+  "plant" : {
+    "Type" : "Orchid",
+    "English_name" : "Yellow Orchid",
+    "Plant_code": "13D02",
+    "Color": ["green", "white", "yellow"],
+    "Sepal_size": {
+      "Width" : 0.05, "Height" : 0.05
+    },
+    "Petal_size": {
+      "Width" : 0.5, "Height" : 0.5
+    },
+    "Growth_form": "Hybrid"
+  }
+}

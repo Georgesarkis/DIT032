@@ -1,0 +1,30 @@
+{
+  "garden" : {
+    "name" : "Mishmash Mixed Garden",
+    "size" : 567,
+    "plants" : {
+      "trees" : ["01A01"],
+      "tulips" : ["9F28"],
+      "roses" : ["100D02", "100D01"]
+    }
+  }
+}
+{
+  "garden" : {
+    "name" : "Orchid Garden",
+    "size" : 146,
+    "plants" : {
+      "orchids" : ["13D05", "9F28"],
+      "trees" : ["13F27", "13F28", "13F29"]
+    }
+  }
+}
+{
+  "garden" : {
+    "name" : "Mini Rose Garden",
+    "size" : 15,
+    "plants" : {
+      "roses" : ["100D02", "100D01"]
+    }
+  }
+}

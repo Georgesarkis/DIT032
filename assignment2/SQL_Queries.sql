@@ -1,21 +1,49 @@
-//SQL1
-SELECT name FROM island WHERE type = 'coral' or type = 'atoll';
+-- SQL1
+SELECT name
+FROM Island
+WHERE type='coral' or type='atoll';
 
-//SQL2
-SELECT name,province,country,population FROM city where latitude > 66.33;
+-- SQL2
+SELECT name, province, country, population
+											FROM city 
+											WHERE latitude>66.33;
 
-//SQL3 //WRONG 
-SELECT encompasses.country FROM isMember JOIN encompasses ON isMember.country = encompasses.country  WHERE encompasses.continent ='Europe' AND isMember.organization !='EU';
+-- SQL3
+SELECT country 
+				FROM encompasses
+				WHERE continent='Europe'
+										EXCEPT
+												SELECT country 
+												FROM isMember
+												WHERE organization='EU';
 
-//SQL4
-SELECT country FROM language WHERE name = 'English' AND percentage > 50;
+-- SQL4
+SELECT country
+				FROM Language
+				JOIN Country on code=country
+				WHERE Language.name='English' and percentage>50;
 
-//SQL5
-WITH deepLake AS (SELECT name FROM lake WHERE depth > 1000),
-	deepSea AS (SELECT name FROM sea WHERE depth > 1000)
-	, all_together AS (SELECT * FROM deepLake,deepSea)
-SELECT geo_lake.province FROM geo_lake  WHERE geo_lake.lake= all_togerher.name JOIN geo_sea ON geo_lake.country = geo_sea.country AND geo_sea.sea = all_together.name;
+-- SQL5
+WITH deepLake AS (
+					SELECT name
+					FROM Lake
+					WHERE depth>1000)
 
+		,deepSea AS (
+						SELECT name
+						FROM Sea
+						WHERE depth>1000)
+
+		SELECT province 
+				FROM geo_lake 
+				JOIN deepLake 
+				on deepLake.name=geo_lake.lake 
+				UNION 
+		SELECT province 
+				FROM geo_sea 
+				JOIN deepSea 
+				on deepSea.name=geo_sea.sea;
+				
 --SQL6
 WITH year2001 AS ( SELECT country, population AS population2001 FROM countrypops WHERE year = 2001 ),
 	year2011 AS ( SELECT country, population AS population2011 FROM countrypops WHERE year = 2011 )
@@ -47,6 +75,25 @@ WITH lakeCount AS (SELECT DISTINCT geo_lake.country,count(lake)AS lake_count fro
 SELECT * from lakeCount FULL OUTER JOIN riverCount ON lakeCount.country = riverCount.country;
 --DOESNT WORK
 SELECT * FROM ((SELECT DISTINCT geo_lake.country,count(lake)AS lake_count from geo_lake GROUP BY country) AS lakeCount FULL OUTER JOIN (SELECT DISTINCT geo_river.country,count(river)AS river_count from geo_river GROUP BY country) AS riverCount ON riverCount.country =lakeCount.country ) WHERE lakeCount.country = riverCount.country;
+
+
+
+
+
+
+
+
+
+SELECT lake.name, lake.count as lake_count, river.count as river_count FROM 
+(SELECT co.name, COUNT(gl.lake) FROM "country" as co, "geo_lake" as gl WHERE co.code = gl.country GROUP BY co.name) as lake 
+LEFT JOIN 
+(SELECT c.name, COUNT(gr.river) FROM "country" as c, "geo_river" as gr WHERE c.code = gr.country GROUP BY c.name) as river ON lake.name = river.name;
+
+
+
+
+
+
 
 --SQL10
 --SOLUTION 1:
